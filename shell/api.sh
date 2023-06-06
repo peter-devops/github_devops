@@ -1,3 +1,3 @@
 #!/bin/bash
 
-Hello,This is github_devops api.sh
+echo "Hello,This is github_devops api.sh"

@@ -8,6 +8,6 @@ phases:
   pre_build:
     commands:
     - echo "安裝需要的東西"
-   build:
+  build:
     commands:
     - echo "PHP BUILD"

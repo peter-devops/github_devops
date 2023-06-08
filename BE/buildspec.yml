@@ -1,3 +1,4 @@
+
 version: 0.2
 env:
   shell: bash
@@ -9,6 +10,7 @@ phases:
     commands:
     - echo "安裝需要的東西"
     - echo "我是測試!!!!"
+    - echo "我是測試2號碼!"
   build:
     commands:
     - echo "PHP BUILD"

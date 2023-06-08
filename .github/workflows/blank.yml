@@ -21,3 +21,10 @@ jobs:
       - name: echo "HAHAHAHAHA"
         run: |
           echo "HAHAHAHAHAHA"     
+
+  RUN_C:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo "HAHAHAHAHA"
+        run: |
+          echo "HAHAHAHAHAHA"     

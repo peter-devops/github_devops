@@ -3,7 +3,9 @@ name: Copy DevOps Workflow
 
 on:
   workflow_call:
-
+    secrets:
+      AWS_ID:
+        required: true
 jobs:
   Build:
     runs-on: ubuntu-latest

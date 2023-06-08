@@ -35,7 +35,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ID }}
         aws-secret-access-key: ${{ secrets.AWS_KEY }}
-        aws-region: us-west-2
+        aws-region: ap-northeast-1
 
     - name: Run CodeBuild
       uses: aws-actions/aws-codebuild-run-build@v1

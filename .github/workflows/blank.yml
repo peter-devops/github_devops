@@ -24,6 +24,7 @@ jobs:
 
   RUN_C:
     runs-on: ubuntu-latest
+    needs: RUN_T
     steps:
       - name: echo "HAHAHAHAHA"
         run: |

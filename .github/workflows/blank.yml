@@ -37,10 +37,22 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_KEY }}
         aws-region: ap-northeast-1
 
-    - name: Run CodeBuild
-      uses: aws-actions/aws-codebuild-run-build@v1
-      with:
-        project-name: github_api
+    - name: force to update git submodules 
+      run: | 
+        git submodule update --remote --recursive
+
+    - name: update to S3
+      run: | 
+        aws s3 sync . s3://peter-testa  
+
+    - name: Let codebuild to scape S3 bundle
+      run: |
+        echo "Hello World" 
+
+#    - name: Run CodeBuild
+#      uses: aws-actions/aws-codebuild-run-build@v1
+#      with:
+#        project-name: github_api
 
   RUN_C:
     runs-on: ubuntu-latest

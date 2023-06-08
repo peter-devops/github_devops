@@ -1,0 +1,20 @@
+####
+name: Copy DevOps Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+            
+      # 將repo 過濾出來
+      - name: Checkout BE-repo        
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+      

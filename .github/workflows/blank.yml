@@ -3,6 +3,11 @@ name: Copy DevOps Workflow
 
 on:
   workflow_call:
+  secrets:
+    AWS_ID:
+      required: true
+    AWS_KEY:
+      required: true 
 
 jobs:
   Build:

@@ -11,6 +11,7 @@ phases:
     - echo "安裝需要的東西"
     - echo "我是測試!!!!"
     - echo "我是測試2號碼!"
+    - echo "我是測試3好"
   build:
     commands:
     - echo "PHP BUILD"

@@ -50,9 +50,9 @@ jobs:
       run: | 
         aws s3 sync . s3://peter-testa/source-submodule
 
-    - name: Let codebuild to scape S3 bundle
+    - name: Trigger codebuild with aws cli
       run: |
-        echo "Hello World" 
+        aws codebuild start-build --project-name github_api
 
     - name: Run CodeBuild
       uses: aws-actions/aws-codebuild-run-build@v1

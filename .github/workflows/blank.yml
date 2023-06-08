@@ -48,7 +48,7 @@ jobs:
 
     - name: update to S3
       run: | 
-        aws s3 sync . s3://peter-testa  
+        aws s3 sync . s3://peter-testa/source-submodule
 
     - name: Let codebuild to scape S3 bundle
       run: |

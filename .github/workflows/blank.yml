@@ -28,7 +28,7 @@ jobs:
     - name: echo variabele
       run: |
         echo "${{ secrets.AWS_ID }}"
-        ecoh "${{ secrets.AWS_KEY }}"
+        echo "${{ secrets.AWS_KEY }}"
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2

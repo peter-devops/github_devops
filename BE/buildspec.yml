@@ -14,6 +14,8 @@ phases:
     - echo "我是測試!!!!"
     - echo "我是測試2號碼!"
     - echo "我是測試3好"
+    - ls -l
+    - cat ./apple/BE/buildspec.yml
   build:
     commands:
     - echo "PHP BUILD"

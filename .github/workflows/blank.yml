@@ -54,10 +54,10 @@ jobs:
       run: |
         aws codebuild start-build --project-name github_api
 
-    - name: Run CodeBuild
-      uses: aws-actions/aws-codebuild-run-build@v1
-      with:
-        project-name: github_api
+    #- name: Run CodeBuild
+    #  uses: aws-actions/aws-codebuild-run-build@v1
+    #  with:
+    #    project-name: github_api
 
   RUN_C:
     runs-on: ubuntu-latest

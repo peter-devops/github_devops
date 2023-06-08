@@ -15,20 +15,20 @@ jobs:
 
     steps:
             
-      # 將repo 過濾出來
-      - name: Checkout BE-repo        
-        uses: actions/checkout@v3
-        with:
-          submodules: 'recursive'
+    # 將repo 過濾出來
+    - name: Checkout BE-repo        
+      uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
 
   RUN_T:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout BE-repo
-        uses: actions/checkout@v3
-        with:
-          submodules: 'recursive'
+      uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
     
     - name: echo variabele
       run: |

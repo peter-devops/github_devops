@@ -16,6 +16,7 @@ jobs:
         with:
           submodules: 'recursive'
   RUN_T:
+    runs-one: ubuntu-latest
     steps:
       - name: echo "HAHAHAHAHA"
         run: |

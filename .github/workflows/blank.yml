@@ -25,11 +25,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
     - name: Checkout BE-repo
       uses: actions/checkout@v3
       with:
         submodules: 'recursive'
     
+    - name: echo
+      run: |
+        echo "${{ ENV1 }}"
+        echo "${{ ENV2 }}"
+        echo "${{ ENV3 }}"
+
     - name: echo variabele
       run: |
         echo "${{ secrets.AWS_ID }}"

@@ -62,8 +62,11 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-    #- name: Grant shell exec 
-    #  run: | 
+     - name: Checkout BE-repo
+      uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+        
     - name: force to update git submodules 
       run: | 
         git submodule update --remote --recursive

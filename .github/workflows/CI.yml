@@ -62,18 +62,12 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
+    #- name: Grant shell exec 
+    #  run: | 
+
     - name: Test for ENVIRONMENT
       run: |
-        echo "本次跑的參數如下:"
-        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
-        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
-        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
-        echo "github.event.repository.name: ${{ github.event.repository.name }}"
-        echo "github ref: ${{ github.ref }}"
-        echo "github ref_name: ${{ github.ref_name }}"
-        echo "RELEASE: ${{ env.RELEASE }}"
-        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
-        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+        ./apple/BE/shell/api.sh
 
   CI-TEST2:
     runs-on: ubuntu-latest 

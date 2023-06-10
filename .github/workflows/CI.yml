@@ -64,6 +64,9 @@ jobs:
     steps:
     #- name: Grant shell exec 
     #  run: | 
+    - name: force to update git submodules 
+      run: | 
+        git submodule update --remote --recursive
 
     - name: Test for ENVIRONMENT
       run: |

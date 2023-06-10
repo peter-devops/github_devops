@@ -1,4 +1,4 @@
 #!/bin/bash
 
 aws --version
-aws s3 ls 
+# aws s3 ls 

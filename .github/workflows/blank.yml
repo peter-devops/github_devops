@@ -42,7 +42,7 @@ env:
 
 jobs:
   Check_all_enviroment:
-    runs-on:  self-hosted
+    runs-on: ubuntu-latest 
 
     steps:
     - name: Test for ENVIRONMENT

@@ -8,6 +8,8 @@ on:
         required: true
       AWS_KEY:
         required: true 
+env:
+  DAY_OF_WEEK: Monday
 
 jobs:
   Build:
@@ -31,11 +33,15 @@ jobs:
       with:
         submodules: 'recursive'
     
-    - name: echo
+    - name: echo local env
       run: |
-        echo "${{ ENV1 }}"
-        echo "${{ ENV2 }}"
-        echo "${{ ENV3 }}"
+        echo "$DAY_OF_WEEK"
+   
+#    - name: echo
+#      run: |
+#        echo "${{ ENV1 }}"
+#        echo "${{ ENV2 }}"
+#        echo "${{ ENV3 }}"
 
     - name: echo variabele
       run: |

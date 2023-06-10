@@ -1,0 +1,146 @@
+#####
+name: CI workflow
+
+on:
+  workflow_call:
+    secrets:
+      AWS_ID:
+        required: true
+      AWS_KEY:
+        required: true 
+env:
+  DAY_OF_WEEK: Monday
+  ENVIRONMENT: ${{
+      (github.ref == 'refs/heads/dev-env' && 'dev') ||
+      (github.ref == 'refs/heads/staging' && 'stg') ||
+      (startsWith(github.ref, 'refs/tags/v') && 'prod') ||
+      'unknown'
+      }} # 當分支 = ?? 則給他什麼數值
+  CODEBUILD_NAME: ${{
+      (github.ref == 'refs/heads/dev-env' && 'isofun_api-dev') ||
+      (github.ref == 'refs/heads/staging' && 'isofun_api-stg') ||
+      (startsWith(github.ref, 'refs/tags/v') && 'isofun_api-prod') ||
+      'unknown'
+      }} # 當分支 = ?? 則給他什麼數值.  #######@!#!@#!@#@! 這個記得正式的時候要改。
+  TIMEOUT_TIME: ${{
+      (github.ref == 'refs/heads/dev-env' && '30') ||
+      (github.ref == 'refs/heads/staging' && '30') ||
+      (startsWith(github.ref, 'refs/tags/v') && '300') ||
+      'unknown'
+      }} # PROD 的時候，會需要比較多的時間是因為流量放行的緣故，也會因為部署策略導致更長時間，請斟酌調整，目前經驗判斷都是 5分鐘左右,!@#!@#@# 測試模式改30秒
+  RELEASE: ${{
+      (startsWith(github.ref, 'refs/heads') && 'x') ||
+      (startsWith(github.ref, 'refs/tags/v') && github.ref_name) ||
+      'unknown'
+      }}
+  DEPLOYMENT_GROUP_NAME: ${{
+      (github.ref == 'refs/heads/dev-env' && 'dev') ||
+      (github.ref == 'refs/heads/staging' && 'stg') ||
+      (startsWith(github.ref, 'refs/tags/v') && 'prod') ||
+      'unknown'
+      }}
+
+jobs:
+  Check_all_enviroment:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+  CI-TEST1:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+  CI-TEST2:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+  CI-TEST3:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+  CI-TEST4:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+  CI-TEST5:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Test for ENVIRONMENT
+      run: |
+        echo "本次跑的參數如下:"
+        echo "ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "CODEBUILD_NAME: ${{ env.CODEBUILD_NAME }}"
+        echo "TIMEOUT_TIME: ${{ env.TIMEOUT_TIME }}"
+        echo "github.event.repository.name: ${{ github.event.repository.name }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.ref_name }}"
+        echo "RELEASE: ${{ env.RELEASE }}"
+        echo "DEPLOYMENT_CONFIG_NAME: ${{ env.DEPLOYMENT_CONFIG_NAME }}"
+        echo "DEPLOYMENT_GROUP_NAME: ${{ env.DEPLOYMENT_GROUP_NAME }}"
+
+
